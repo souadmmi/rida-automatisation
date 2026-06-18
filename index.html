@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Votre Agence : croissance des cabinets d'administration de biens</title>
+<title>Rida : croissance des cabinets d'administration de biens</title>
 <meta name="description" content="Aidez votre cabinet de gestion locative et de syndic à grandir sans embaucher. Automatisation des relances, du quittancement, du reporting et des AG, à côté de vos logiciels métier.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231E012C'/%3E%3Ctext x='50' y='52' font-family='Georgia,serif' font-size='68' font-weight='700' fill='%23F8D299' text-anchor='middle' dominant-baseline='central'%3ER%3C/text%3E%3C/svg%3E">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -46,6 +46,10 @@ body.menu-open .burger span:nth-child(3){top:11px;transform:rotate(-45deg)}
 }
 body.menu-open .mnav{opacity:1;pointer-events:auto}
 body.menu-open{overflow:hidden}
+.mclose{position:absolute;top:22px;right:22px;width:44px;height:44px;background:none;border:none;cursor:pointer;z-index:10;padding:0}
+.mclose::before,.mclose::after{content:'';position:absolute;left:10px;top:21px;width:24px;height:2px;background:#fff;border-radius:2px}
+.mclose::before{transform:rotate(45deg)}
+.mclose::after{transform:rotate(-45deg)}
 .mnav a{
   font-family:'Bebas Neue',sans-serif;font-size:clamp(34px,9vw,52px);line-height:1.25;
   color:#fff;text-decoration:none;display:flex;align-items:baseline;gap:16px;
@@ -141,7 +145,7 @@ section{position:relative;padding:clamp(90px,12vw,160px) 44px}
 .exm{font-family:'Roboto Mono',monospace;font-size:11.5px;line-height:1.8;color:var(--vl);padding-left:14px;border-left:1.5px solid var(--p)}
 .exm b{color:var(--od);font-weight:500}
 .scrolly{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,90px);margin-top:clamp(30px,4vw,50px)}
-@media(max-width:880px){.scrolly{grid-template-columns:1fr}}
+@media(max-width:880px){.scrolly{display:none}}
 .sticky-side{position:sticky;top:0;height:100svh;align-self:start;display:flex;flex-direction:column;justify-content:center}
 @media(max-width:880px){.sticky-side{display:none}}
 .sticky-side .sk{font-family:'Roboto Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--od);transition:opacity .4s}
@@ -163,6 +167,40 @@ section{position:relative;padding:clamp(90px,12vw,160px) 44px}
 .sblock .exm{margin-top:18px}
 .sblock .mnum{display:none;font-family:'Bebas Neue',sans-serif;font-size:70px;line-height:.9;background:var(--conic);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px}
 @media(max-width:880px){.sblock .mnum{display:block}}
+
+/* ===================== LEVIERS — TIMELINE DÉGRADÉE (mobile) ===================== */
+.route{position:relative;display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(64px,9vw,110px);margin-top:clamp(50px,7vw,80px);padding:24px 0 24px clamp(46px,7vw,90px)}
+.rstop h3{overflow-wrap:break-word}
+@media(min-width:881px){.route{display:none}}
+.route svg.spine{position:absolute;left:0;top:0;height:100%;width:60px;overflow:visible}
+.route .sp-bg{fill:none;stroke:var(--hair);stroke-width:1.5}
+.route .sp-fg{fill:none;stroke:url(#groute);stroke-width:3;stroke-linecap:round}
+.rstop{position:relative;max-width:680px}
+.rstop .dot{
+  position:absolute;left:calc(-1*clamp(46px,7vw,90px) + 23px);top:6px;
+  width:17px;height:17px;border-radius:50%;background:var(--paper);
+  border:1.5px solid var(--hair);transition:background .5s,border-color .5s,box-shadow .5s;
+}
+.rstop.passed .dot{background:var(--od);border-color:var(--od);box-shadow:0 0 0 6px rgba(245,158,81,.18)}
+.rstop .meta{font-family:'Roboto Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--od);margin-bottom:12px}
+.rstop h3{font-family:'Bebas Neue',sans-serif;font-size:clamp(26px,3.6vw,46px);font-weight:400;line-height:1;margin-bottom:14px;opacity:.25;transform:translateX(-12px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.rstop.passed h3{opacity:1;transform:none}
+.rstop p{font-weight:300;color:var(--ink-soft);max-width:54ch;opacity:.35;transition:opacity .7s var(--ease) .1s}
+.rstop.passed p{opacity:1}
+.rstop .exm{margin-top:16px;opacity:0;transform:translateY(8px);transition:opacity .7s var(--ease) .2s,transform .7s var(--ease) .2s}
+.rstop.passed .exm{opacity:1;transform:none}
+.rstop .stat{
+  margin-top:18px;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
+  opacity:0;transform:translateX(-14px);transition:opacity .7s var(--ease) .25s,transform .7s var(--ease) .25s;
+}
+.rstop.passed .stat{opacity:1;transform:none}
+.rstop .stat b{font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:clamp(28px,3.4vw,40px);line-height:.9;background:var(--conic);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;white-space:nowrap}
+.rstop .stat span{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);line-height:1.8}
+@media(max-width:640px){
+  .route{padding-left:40px;gap:56px}
+  .rstop .dot{left:calc(-40px + 20px);width:14px;height:14px}
+  .route svg.spine{width:52px}
+}
 
 /* ===================== MÉTHODE — PLAN DE DÉPLOIEMENT ===================== */
 .methode{background:linear-gradient(180deg,var(--paper),#F6F1F8 160%)}
@@ -191,32 +229,28 @@ section{position:relative;padding:clamp(90px,12vw,160px) 44px}
 .g-bar.b3{left:calc(280px + (100% - 280px)*.8);width:calc((100% - 280px)*.2 - 14px);margin-left:7px;background:var(--vn);transition-delay:1s}
 .g-bar.b3::after{content:'→ ∞';margin-left:8px;color:var(--p)}
 .g-foot{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;padding:18px 22px;background:#FBF6EE;border-top:1px solid var(--hair)}
-.g-foot .price{align-self:center}
+.g-foot .price{align-self:center;font-family:'Roboto',sans-serif;font-weight:400;font-size:12px;letter-spacing:0;text-transform:none;line-height:1.55}
+.g-foot .price b{font-size:inherit;font-weight:500}
 .g-detail{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(22px,3.6vw,44px);margin-top:clamp(30px,4.4vw,48px)}
 @media(max-width:880px){.g-detail{grid-template-columns:1fr}}
 .g-detail p{font-weight:300;color:var(--ink-soft);font-size:.92rem}
 .g-detail .dk{font-family:'Roboto Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--od);display:block;margin-bottom:8px}
 @media(max-width:880px){
-  .g-head{grid-template-columns:130px repeat(5,1fr)}
-  .g-row{grid-template-columns:130px repeat(5,1fr)}
-  .g-bar.b1{left:calc(130px + 0%);width:calc((100% - 130px)*.2 - 10px);margin-left:5px;font-size:0}
-  .g-bar.b2{left:calc(130px + (100% - 130px)*.2);width:calc((100% - 130px)*.6 - 10px);margin-left:5px;font-size:0}
-  .g-bar.b3{left:calc(130px + (100% - 130px)*.8);width:calc((100% - 130px)*.2 - 10px);margin-left:5px;font-size:0}
-  .g-bar.b3::after{display:none}
-}
-@media(max-width:560px){
-  .g-head>div{padding:13px 10px;font-size:8.5px}
-  .g-row{min-height:78px}
-  .g-row .g-lab{padding:14px 10px}
-  .g-row .g-lab b{font-size:16px}
-  .g-row .g-lab span{font-size:8.5px}
-  .g-head{grid-template-columns:104px repeat(5,1fr)}
-  .g-row{grid-template-columns:104px repeat(5,1fr)}
-  .g-bar{height:24px}
-  .g-bar.b1{left:calc(104px + 0%);width:calc((100% - 104px)*.2 - 8px);margin-left:4px}
-  .g-bar.b2{left:calc(104px + (100% - 104px)*.2);width:calc((100% - 104px)*.6 - 8px);margin-left:4px}
-  .g-bar.b3{left:calc(104px + (100% - 104px)*.8);width:calc((100% - 104px)*.2 - 8px);margin-left:4px}
-  .g-foot{flex-direction:column;gap:8px}
+  /* le Gantt devient une pile de cartes : une pastille par phase */
+  .g-head{display:none}
+  .g-row{display:block;position:relative;min-height:0;padding:20px 20px 22px}
+  .g-row:hover{background:transparent}
+  .g-row .g-lab{padding:0;margin-bottom:16px}
+  .g-row .g-lab b{font-size:21px}
+  .g-row .g-lab span{font-size:10px}
+  .g-row .g-cell{display:none}
+  .g-bar{
+    position:relative;top:auto;transform:none;height:32px;font-size:10px;
+    border-radius:99px;justify-content:flex-start;white-space:normal;
+  }
+  .g-bar.b1,.g-bar.b2,.g-bar.b3{left:auto;width:auto;margin:0}
+  .g-bar.b3::after{display:inline-block}
+  .g-foot{flex-direction:column;gap:8px;align-items:flex-start}
 }
 
 /* ===================== POUR QUI — LE SPECTRE ===================== */
@@ -264,11 +298,11 @@ section{position:relative;padding:clamp(90px,12vw,160px) 44px}
 .sp-why p b{color:var(--ink);font-weight:500}
 @media(max-width:640px){
   .sp-mark p{display:none}
-  .sp-bracket{top:-66px;height:42px}
-  .sp-bracket span{font-size:8px;white-space:normal;text-align:center;max-width:200px;line-height:1.6}
+  .sp-bracket{top:-58px;height:38px}
+  .sp-bracket span{font-size:8px;white-space:normal;text-align:center;max-width:230px;line-height:1.55}
   .sp-mark h3{font-size:15px}
   .sp-mark .ico i{transform:scale(.8);transform-origin:bottom}
-  .spectre{margin-top:100px}
+  .spectre{margin-top:170px}
 }
 
 /* ===================== À PROPOS ===================== */
@@ -356,7 +390,7 @@ footer .right{text-align:right}
 
 
 <nav class="nav">
-  <a class="logo" href="#">VOTRE<i>·AGENCE</i></a>
+  <a class="logo" href="#">RIDA<i>·</i></a>
   <div class="links">
     <a class="lk" href="#leviers">Leviers</a>
     <a class="lk" href="#methode">Méthode</a>
@@ -368,12 +402,13 @@ footer .right{text-align:right}
 </nav>
 
 <div class="mnav" id="mnav">
+  <button class="mclose" id="mclose" aria-label="Fermer le menu"></button>
   <a href="#leviers"><i>01</i>Ce que j'apporte</a>
   <a href="#methode"><i>02</i>La méthode</a>
   <a href="#cible"><i>03</i>Pour qui</a>
   <a href="#apropos"><i>04</i>À propos</a>
   <a href="https://calendly.com/rida-elghalb-pro" target="_blank" rel="noopener" class="mcta"><i>05</i>Diagnostic gratuit</a>
-  <div class="mfoot">Votre·Agence, administration de biens<br>Gestion locative & syndic · France</div>
+  <div class="mfoot">Rida, administration de biens<br>Gestion locative & syndic · France</div>
 </div>
 
 <!-- ===================== HERO ===================== -->
@@ -393,7 +428,7 @@ footer .right{text-align:right}
     <span class="zero">6–10 h</span>
     libérées par gestionnaire<br>chaque semaine
   </div>
-  <div class="corner bl"><b>Votre·Agence</b>, administration de biens<br>Gestion locative & syndic · France</div>
+  <div class="corner bl"><b>Rida</b>, administration de biens<br>Gestion locative & syndic · France</div>
   <div class="corner br">Compatible ICS · Septeo · Even · LSC<br>À côté de vos logiciels, jamais à leur place</div>
 </header>
 
@@ -455,6 +490,47 @@ footer .right{text-align:right}
         </div>
       </div>
     </div>
+
+    <svg width="0" height="0" aria-hidden="true"><defs>
+      <linearGradient id="groute" gradientUnits="userSpaceOnUse" x1="30" y1="0" x2="30" y2="1000">
+        <stop offset="0" stop-color="#F8D299"/><stop offset=".5" stop-color="#F59E51"/><stop offset="1" stop-color="#804A8A"/>
+      </linearGradient>
+    </defs></svg>
+
+    <div class="route" id="route">
+      <svg class="spine" preserveAspectRatio="none" aria-hidden="true">
+        <line class="sp-bg" x1="30" y1="0" x2="30" y2="100%"/>
+        <line class="sp-fg" id="spFg" x1="30" y1="0" x2="30" y2="0"/>
+      </svg>
+      <div class="rstop">
+        <span class="dot"></span>
+        <div class="meta">Levier 01 · Croissance</div>
+        <h3>Absorber plus de mandats sans recruter</h3>
+        <p>Un gestionnaire libéré de 6 à 10 heures par semaine suit davantage de lots, mieux. À l'échelle du cabinet, c'est un recrutement évité ou retardé : 45 à 55 k€ par an.</p>
+        <div class="stat"><b>6–10 h</b><span>libérées / gestionnaire / semaine</span></div>
+      </div>
+      <div class="rstop">
+        <span class="dot"></span>
+        <div class="meta">Levier 02 · Recouvrement</div>
+        <h3>Encaisser les impayés plus vite</h3>
+        <p>Une relance qui part à J+3 plutôt qu'à J+30 change radicalement le taux de recouvrement amiable, sans mobiliser une seule heure de vos équipes.</p>
+        <div class="stat"><b>J+3</b><span>première relance · au lieu de J+30</span></div>
+      </div>
+      <div class="rstop">
+        <span class="dot"></span>
+        <div class="meta">Levier 03 · Fidélisation</div>
+        <h3>Retenir vos propriétaires-bailleurs</h3>
+        <p>Un reporting régulier et impeccable est la première raison de rester. Un mandat perdu, c'est 5 à 15 k€ de revenus futurs envolés.</p>
+        <div class="stat"><b>5–15 k€</b><span>préservés par mandat fidélisé</span></div>
+      </div>
+      <div class="rstop">
+        <span class="dot"></span>
+        <div class="meta">Levier 04 · Conformité</div>
+        <h3>Ne plus jamais rater une échéance</h3>
+        <p>Fins de mandats, diagnostics, obligations ALUR : tout est surveillé en continu, rien ne repose sur la mémoire d'un collaborateur débordé.</p>
+        <div class="stat"><b>0 oubli</b><span>mandats · diagnostics · ALUR</span></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -474,7 +550,7 @@ footer .right{text-align:right}
       <div class="g-row">
         <div class="g-lab"><b>Diagnostic</b><span>Gratuit · rapport 72 h</span></div>
         <div class="g-cell"></div><div class="g-cell"></div><div class="g-cell"></div><div class="g-cell"></div><div class="g-cell"></div>
-        <div class="g-bar b1">45 min + rapport</div>
+        <div class="g-bar b1">30/45 min + rapport</div>
       </div>
       <div class="g-row">
         <div class="g-lab"><b>Mise en place</b><span>1 500 – 3 500 €</span></div>
@@ -493,7 +569,7 @@ footer .right{text-align:right}
     </div>
 
     <div class="g-detail rv">
-      <p><span class="dk">01 · Diagnostic</span>45 minutes en visio pour cartographier vos processus chronophages : relances, quittancement, reporting, AG, échéances. Le rapport écrit vous appartient, que nous travaillions ensemble ensuite ou non.</p>
+      <p><span class="dk">01 · Diagnostic</span>entre 30 et 45 minutes en visio pour cartographier vos processus chronophages : relances, quittancement, reporting, AG, échéances. Le rapport écrit vous appartient, que nous travaillions ensemble ensuite ou non.</p>
       <p><span class="dk">02 · Mise en place</span>Conception et déploiement sur mesure des automatisations prioritaires, de 2 à 6 processus selon l'engagement. Vos équipes gardent leurs outils et leurs habitudes.</p>
       <p><span class="dk">03 · Suivi</span>Maintenance, surveillance et améliorations continues : vos processus évoluent avec votre portefeuille, avec un interlocuteur unique qui connaît votre cabinet par cœur.</p>
     </div>
@@ -536,7 +612,7 @@ footer .right{text-align:right}
         </div>
         <div>
           <span class="wk">Et si vous êtes en bordure</span>
-          <p>Au-delà de 2 000 lots, vous avez souvent déjà des équipes dédiées, mais les frontières ont des exceptions. <b>Le diagnostic gratuit de 45 minutes</b> est justement fait pour trancher votre cas, rapport écrit à l'appui.</p>
+          <p>Au-delà de 2 000 lots, vous avez souvent déjà des équipes dédiées, mais les frontières ont des exceptions. <b>Le diagnostic gratuit de 30 à 45 minutes</b> est justement fait pour trancher votre cas, rapport écrit à l'appui.</p>
         </div>
       </div>
     </div>
@@ -562,7 +638,7 @@ footer .right{text-align:right}
       </div>
       <div class="pull rv dl1">
         <p class="q">« Mon travail commence là où le temps de vos gestionnaires <em>se perd</em>, et s'arrête là où votre logiciel métier fait déjà bien le sien. »</p>
-        <p class="who">Le fondateur, Votre·Agence</p>
+        <p class="who">Le fondateur, Rida</p>
       </div>
     </div>
   </div>
@@ -574,7 +650,7 @@ footer .right{text-align:right}
   <div class="wrap">
     <div class="shead rv">
       <span class="tag"><b>05</b> : Diagnostic</span>
-      <span class="tag">45 min en visio · rapport écrit sous 72 h · sans engagement</span>
+      <span class="tag">30/45 min en visio · rapport écrit sous 72 h · sans engagement</span>
     </div>
     <h2 class="big rv">Et si on regardait où votre cabinet <span class="hl-p">perd du temps ?</span></h2>
 
@@ -605,9 +681,9 @@ footer .right{text-align:right}
 
 <!-- ===================== FOOTER ===================== -->
 <footer>
-  <div><span class="flogo">VOTRE<i>·AGENCE</i></span><br>Administration de biens · France</div>
+  <div><span class="flogo">RIDA<i>·</i></span><br>Administration de biens · France</div>
   <div class="mid">© 2026, Croissance des cabinets,<br>par l'automatisation des processus</div>
-  <div class="right"><a href="mention-legales.html">Mentions légales</a> · <a href="confidentialite.html">Confidentialité</a><br><a href="mailto:contact@votre-domaine.fr">contact@votre-domaine.fr</a></div>
+  <div class="right"><a href="mention-legales.html">Mentions légales</a> · <a href="confidentialite.html">Confidentialité</a><br><a href="mailto:rida.elghalb.pro@gmail.com">rida.elghalb.pro@gmail.com</a></div>
 </footer>
 
 <!-- EmailJS : SDK officiel (envoi d'e-mail côté navigateur, sans backend) -->
@@ -633,6 +709,8 @@ var REDUCED=matchMedia('(prefers-reduced-motion: reduce)').matches;
   var burger=document.getElementById('burger'),mnav=document.getElementById('mnav');
   if(!burger)return;
   burger.addEventListener('click',function(){document.body.classList.toggle('menu-open')});
+  var mclose=document.getElementById('mclose');
+  if(mclose)mclose.addEventListener('click',function(){document.body.classList.remove('menu-open')});
   mnav.querySelectorAll('a').forEach(function(a){
     a.addEventListener('click',function(){document.body.classList.remove('menu-open')});
   });
@@ -747,6 +825,7 @@ silk('contact','silk2',{
   var ticking=false;
   function update(){
     ticking=false;
+    if(innerWidth<=880)return; /* la timeline prend le relais sur mobile */
     var mid=innerHeight*.5,best=0,bd=Infinity;
     for(var i=0;i<blocks.length;i++){
       var r=blocks[i].getBoundingClientRect();
@@ -761,6 +840,44 @@ silk('contact','silk2',{
   addEventListener('scroll',onScroll,{passive:true});
   addEventListener('resize',onScroll);
   update();
+})();
+
+/* ===================== timeline des leviers (mobile, fil dégradé au scroll) ===================== */
+(function(){
+  var route=document.getElementById('route'),fg=document.getElementById('spFg');
+  if(!route)return;
+  var grad=document.getElementById('groute');
+  var stops=[].slice.call(route.querySelectorAll('.rstop'));
+  var cur=0,target=0,raf=null;
+  function sync(){
+    /* le dégradé s'étire sur toute la hauteur réelle de la timeline */
+    grad.setAttribute('y2',route.offsetHeight);
+  }
+  function measure(){
+    var r=route.getBoundingClientRect();
+    var vh=innerHeight;
+    var total=r.height-vh*.3;
+    var done=Math.min(Math.max((vh*.72-r.top)/(total||1),0),1);
+    target=done*route.offsetHeight;
+  }
+  function frame(){
+    /* interpolation douce : la couleur "coule" vers sa position */
+    cur+=(target-cur)*.12;
+    if(Math.abs(target-cur)<.5)cur=target;
+    fg.setAttribute('y2',Math.max(cur,0));
+    stops.forEach(function(st){
+      st.classList.toggle('passed',cur>=st.offsetTop+10);
+    });
+    if(cur!==target){raf=requestAnimationFrame(frame)}
+    else raf=null;
+  }
+  function onScroll(){
+    measure();
+    if(!raf)raf=requestAnimationFrame(frame);
+  }
+  addEventListener('scroll',onScroll,{passive:true});
+  addEventListener('resize',function(){sync();onScroll()});
+  sync();onScroll();
 })();
 
 /* ===================== formulaire (EmailJS) ===================== */
@@ -791,7 +908,7 @@ document.getElementById('cform').addEventListener('submit',function(e){
     btn.disabled=false;btn.style.opacity='';btn.innerHTML=prev;
     var msg=form.querySelector('.f-error');
     if(!msg){msg=document.createElement('p');msg.className='rgpd f-error';msg.style.color='#F35F4F';msg.style.marginTop='12px';btn.insertAdjacentElement('afterend',msg);}
-    msg.textContent='L\'envoi a échoué. Réessayez, ou écrivez-moi directement à contact@votre-domaine.fr.';
+    msg.textContent='L\'envoi a échoué. Réessayez, ou écrivez-moi directement à rida.elghalb.pro@gmail.com.';
     if(window.console)console.error('EmailJS:',err);
   });
 });
