@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Votre Agence : croissance des cabinets d'administration de biens</title>
+<meta name="description" content="Aidez votre cabinet de gestion locative et de syndic à grandir sans embaucher. Automatisation des relances, du quittancement, du reporting et des AG, à côté de vos logiciels métier.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231E012C'/%3E%3Ctext x='50' y='52' font-family='Georgia,serif' font-size='68' font-weight='700' fill='%23F8D299' text-anchor='middle' dominant-baseline='central'%3ER%3C/text%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --o:#F59E51;--od:#E8842E;--p:#F8D299;
+  --v:#3A0353;--vl:#804A8A;--vn:#26013A;
+  --conic:conic-gradient(from 194deg at 84% -3%,#F59E51 0deg,#E8842E 76deg,#BF8F00 197deg,#F8D299 246deg,#F59E51 360deg);
+  --conic-v:conic-gradient(from 212deg at 83% -4%,#3A0353 0deg,#804A8A 76deg,#5C2B6E 197deg,#A06BAB 246deg,#3A0353 360deg);
+  --conic-p:conic-gradient(from 212deg at 83% -4%,#F8D299 0deg,#F59E51 76deg,#E8842E 197deg,#FDE7C4 246deg,#F8D299 360deg);
+  --ink:#121212;--ink-soft:rgba(18,18,18,.55);
+  --paper:#FDFCFB;--hair:rgba(18,18,18,.14);
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+html{scroll-behavior:smooth}
+html,body{font-family:'Roboto',sans-serif;background:var(--paper);color:var(--ink);line-height:1.6}
+body{overflow-x:clip}
+::selection{background:var(--p);color:var(--v)}
+
+/* ===================== nav fantôme ===================== */
+.nav{position:fixed;top:16px;left:16px;right:16px;z-index:80;display:flex;align-items:center;justify-content:space-between;padding:14px 28px;border:1px solid rgba(248,210,153,.22);border-radius:16px;background:rgba(30,1,44,.55);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 10px 40px rgba(0,0,0,.18);transition:padding .4s}
+.nav .logo{font-family:'Bebas Neue',sans-serif;font-size:21px;letter-spacing:.05em;color:#fff;text-decoration:none}
+.nav .logo i{font-style:normal;background:var(--conic);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nav .links{display:flex;gap:30px;align-items:center}
+.nav a.lk{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.65);text-decoration:none;transition:color .3s}
+.nav a.lk:hover{color:#fff}
+.nav a.lk.cta{color:var(--p);font-weight:700}
+.burger{display:none;background:none;border:none;width:32px;height:24px;position:relative;z-index:130;cursor:pointer}
+.burger span{position:absolute;left:0;width:100%;height:2px;background:#fff;border-radius:2px;transition:.35s var(--ease)}
+.burger span:nth-child(1){top:2px}.burger span:nth-child(2){top:11px}.burger span:nth-child(3){top:20px}
+body.menu-open .burger span{background:#fff}
+body.menu-open .burger span:nth-child(1){top:11px;transform:rotate(45deg)}
+body.menu-open .burger span:nth-child(2){opacity:0}
+body.menu-open .burger span:nth-child(3){top:11px;transform:rotate(-45deg)}
+.mnav{
+  position:fixed;inset:0;z-index:120;background:linear-gradient(170deg,var(--vn),#1E012C);
+  display:flex;flex-direction:column;justify-content:center;padding:90px 32px 40px;
+  opacity:0;pointer-events:none;transition:opacity .4s var(--ease);
+}
+body.menu-open .mnav{opacity:1;pointer-events:auto}
+body.menu-open{overflow:hidden}
+.mnav a{
+  font-family:'Bebas Neue',sans-serif;font-size:clamp(34px,9vw,52px);line-height:1.25;
+  color:#fff;text-decoration:none;display:flex;align-items:baseline;gap:16px;
+  opacity:0;transform:translateY(20px);transition:opacity .5s var(--ease),transform .5s var(--ease);
+}
+body.menu-open .mnav a{opacity:1;transform:none}
+body.menu-open .mnav a:nth-child(2){transition-delay:.06s}
+body.menu-open .mnav a:nth-child(3){transition-delay:.12s}
+body.menu-open .mnav a:nth-child(4){transition-delay:.18s}
+body.menu-open .mnav a:nth-child(5){transition-delay:.24s}
+.mnav a i{font-style:normal;font-family:'Roboto Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--od)}
+.mnav a.mcta{color:var(--p)}
+.mnav .mfoot{margin-top:auto;font-family:'Roboto Mono',monospace;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4);line-height:2}
+@media(max-width:880px){
+  .nav{padding:14px 20px}
+  .nav .links a.lk{display:none}
+  .burger{display:block}
+}
+
+/* ===================== langage éditorial commun ===================== */
+.go{display:inline-flex;align-items:center;gap:16px;font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:inherit;text-decoration:none;position:relative;padding-bottom:8px}
+.go::after{content:'';position:absolute;left:0;bottom:0;height:1.5px;width:100%;background:currentColor;transform-origin:left;transition:transform .4s var(--ease)}
+.go:hover::after{transform:scaleX(.4)}
+.go .o{width:38px;height:38px;border-radius:50%;background:var(--conic);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:15px;transition:transform .35s cubic-bezier(.3,1.4,.5,1);flex-shrink:0}
+.go:hover .o{transform:translateX(8px) rotate(-45deg)}
+.alt{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:inherit;opacity:.5;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:6px;transition:opacity .3s}
+.alt:hover{opacity:1}
+
+.hl-v{background:var(--conic-p);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hl-o{background:var(--conic);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hl-p{background:var(--conic-p);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+section{position:relative;padding:clamp(90px,12vw,160px) 44px}
+.wrap{max-width:1180px;margin:0 auto;position:relative;z-index:2}
+@media(max-width:980px){section{padding-left:24px;padding-right:24px}}
+
+.shead{display:flex;align-items:baseline;justify-content:space-between;gap:20px;flex-wrap:wrap;border-bottom:1px solid var(--hair);padding-bottom:20px;margin-bottom:clamp(40px,6vw,72px)}
+.shead .tag{font-family:'Roboto Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft)}
+.shead .tag b{color:var(--od);font-weight:500}
+.stitle{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,5.8vw,76px);line-height:.95;letter-spacing:.005em}
+.stitle .dim{opacity:.3}
+.lead{font-weight:300;color:var(--ink-soft);font-size:1.06rem;max-width:58ch}
+
+/* reveals */
+.rv{opacity:0;transform:translateY(34px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.rv.on{opacity:1;transform:none}
+.rv.dl1{transition-delay:.1s}.rv.dl2{transition-delay:.2s}.rv.dl3{transition-delay:.3s}.rv.dl4{transition-delay:.4s}
+
+/* ===================== HERO — LA SOIE ===================== */
+.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:120px 44px 90px;position:relative;overflow:hidden;background:#1E012C;color:#fff}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;
+  -webkit-mask-image:linear-gradient(to bottom,black 82%,transparent 100%);
+  mask-image:linear-gradient(to bottom,black 82%,transparent 100%)}
+.rule{position:absolute;left:44px;top:50%;height:1px;background:rgba(255,255,255,.25);width:0;animation:draw 1.1s cubic-bezier(.6,0,.2,1) .2s forwards;z-index:2}
+@keyframes draw{to{width:min(220px,18vw)}}
+.phrase{position:relative;z-index:2;max-width:1020px}
+.phrase .ln{display:block;overflow:hidden}
+.phrase .ln>span{display:block;font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,10.4vw,134px);line-height:.94;letter-spacing:.005em;transform:translateY(110%);animation:rise 1s var(--ease) forwards}
+.phrase .ln:nth-child(1)>span{animation-delay:.25s}
+.phrase .ln:nth-child(2)>span{animation-delay:.4s}
+.phrase .ln:nth-child(3)>span{animation-delay:.55s}
+@keyframes rise{to{transform:translateY(0)}}
+.phrase .light{font-weight:400;opacity:.32}
+.actions{position:relative;z-index:2;display:flex;align-items:center;gap:44px;margin-top:54px;opacity:0;animation:fade .9s ease 1.15s forwards}
+@keyframes fade{to{opacity:1}}
+.corner{position:absolute;z-index:2;font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.5);line-height:2;opacity:0;animation:fade .9s ease 1.3s forwards}
+.corner b{color:#fff;font-weight:700}
+.corner.bl{left:44px;bottom:34px}
+.corner.br{right:44px;bottom:34px;text-align:right}
+.corner.tr{right:44px;top:50%;transform:translateY(-50%);text-align:right}
+.corner .zero{font-family:'Bebas Neue',sans-serif;font-size:46px;line-height:.9;letter-spacing:.02em;display:block;background:var(--conic-v);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+@media(max-width:980px){
+  .hero{padding:100px 24px 120px}
+  .rule{left:24px}
+  .corner.bl{left:24px}.corner.br{right:24px}.corner.tr{display:none}
+  .actions{flex-direction:column;align-items:flex-start;gap:24px;margin-top:44px}
+}
+@media(max-width:640px){
+  .hero{padding-bottom:150px}
+  .corner{font-size:8.5px;line-height:1.9}
+  .corner.bl{bottom:84px}
+  .corner.br{left:24px;right:auto;bottom:30px;text-align:left}
+}
+
+/* ===================== bande défilante ===================== */
+.tape{border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);overflow:hidden;padding:15px 0;background:var(--paper)}
+.tape .track{display:flex;gap:52px;width:max-content;animation:slide 30s linear infinite}
+.tape span{font-family:'Roboto Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);display:flex;align-items:center;gap:52px;white-space:nowrap}
+.tape span::after{content:"✦";color:var(--od);letter-spacing:0}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* ===================== LEVIERS — SCROLLYTELLING ===================== */
+.exm{font-family:'Roboto Mono',monospace;font-size:11.5px;line-height:1.8;color:var(--vl);padding-left:14px;border-left:1.5px solid var(--p)}
+.exm b{color:var(--od);font-weight:500}
+.scrolly{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,90px);margin-top:clamp(30px,4vw,50px)}
+@media(max-width:880px){.scrolly{grid-template-columns:1fr}}
+.sticky-side{position:sticky;top:0;height:100svh;align-self:start;display:flex;flex-direction:column;justify-content:center}
+@media(max-width:880px){.sticky-side{display:none}}
+.sticky-side .sk{font-family:'Roboto Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--od);transition:opacity .4s}
+.bignum-stack{position:relative;height:clamp(120px,15vw,200px);margin:10px 0}
+.bignum{
+  position:absolute;left:0;top:0;font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(100px,13vw,180px);line-height:.85;white-space:nowrap;
+  background:var(--conic-v);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  opacity:0;transform:translateY(36px);transition:opacity .55s var(--ease),transform .55s var(--ease);
+}
+.bignum.act{opacity:1;transform:none}
+.bignum:nth-child(even){background:var(--conic);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sticky-side .slab{font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);line-height:2;min-height:48px;transition:opacity .4s}
+.story-side{display:grid;gap:clamp(140px,22vw,260px);padding:22vh 0 34vh}
+@media(max-width:880px){.story-side{padding:0;gap:70px}}
+.sblock .meta{font-family:'Roboto Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--od);margin-bottom:14px}
+.sblock h3{font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,3.4vw,44px);font-weight:400;line-height:1;margin-bottom:14px}
+.sblock p{font-weight:300;color:var(--ink-soft);max-width:50ch}
+.sblock .exm{margin-top:18px}
+.sblock .mnum{display:none;font-family:'Bebas Neue',sans-serif;font-size:70px;line-height:.9;background:var(--conic);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px}
+@media(max-width:880px){.sblock .mnum{display:block}}
+
+/* ===================== MÉTHODE — PLAN DE DÉPLOIEMENT ===================== */
+.methode{background:linear-gradient(180deg,var(--paper),#F6F1F8 160%)}
+.price{font-family:'Roboto Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+.price b{color:var(--od);font-weight:500;font-size:13px}
+.gantt{margin-top:clamp(44px,6vw,66px);border:1px solid var(--hair);border-radius:24px;overflow:hidden;background:#fff}
+.g-head{display:grid;grid-template-columns:280px repeat(5,1fr);border-bottom:1px solid var(--hair)}
+.g-head>div{padding:16px 18px;font-family:'Roboto Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);border-left:1px solid var(--hair)}
+.g-head>div:first-child{border-left:none}
+.g-row{display:grid;grid-template-columns:280px repeat(5,1fr);border-bottom:1px solid var(--hair);position:relative;min-height:96px;transition:background .35s}
+.g-row:last-child{border-bottom:none}
+.g-row:hover{background:#FBF6EE}
+.g-row .g-lab{padding:20px 18px;display:flex;flex-direction:column;gap:5px;justify-content:center}
+.g-row .g-lab b{font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:21px;line-height:1}
+.g-row .g-lab span{font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--od)}
+.g-row .g-cell{border-left:1px solid var(--hair)}
+.g-bar{
+  position:absolute;top:50%;transform:translateY(-50%);height:34px;border-radius:99px;
+  display:flex;align-items:center;padding:0 16px;white-space:nowrap;
+  font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#fff;
+  transform-origin:left;scale:0 1;transition:scale 1.2s var(--ease);
+}
+.gantt.on .g-bar{scale:1 1}
+.g-bar.b1{left:calc(280px + 0%);width:calc((100% - 280px)*.2 - 14px);margin-left:7px;background:linear-gradient(135deg,var(--vl),var(--v));transition-delay:.2s}
+.g-bar.b2{left:calc(280px + (100% - 280px)*.2);width:calc((100% - 280px)*.6 - 14px);margin-left:7px;background:linear-gradient(135deg,var(--o),var(--od));transition-delay:.6s}
+.g-bar.b3{left:calc(280px + (100% - 280px)*.8);width:calc((100% - 280px)*.2 - 14px);margin-left:7px;background:var(--vn);transition-delay:1s}
+.g-bar.b3::after{content:'→ ∞';margin-left:8px;color:var(--p)}
+.g-foot{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;padding:18px 22px;background:#FBF6EE;border-top:1px solid var(--hair)}
+.g-foot .price{align-self:center}
+.g-detail{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(22px,3.6vw,44px);margin-top:clamp(30px,4.4vw,48px)}
+@media(max-width:880px){.g-detail{grid-template-columns:1fr}}
+.g-detail p{font-weight:300;color:var(--ink-soft);font-size:.92rem}
+.g-detail .dk{font-family:'Roboto Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--od);display:block;margin-bottom:8px}
+@media(max-width:880px){
+  .g-head{grid-template-columns:130px repeat(5,1fr)}
+  .g-row{grid-template-columns:130px repeat(5,1fr)}
+  .g-bar.b1{left:calc(130px + 0%);width:calc((100% - 130px)*.2 - 10px);margin-left:5px;font-size:0}
+  .g-bar.b2{left:calc(130px + (100% - 130px)*.2);width:calc((100% - 130px)*.6 - 10px);margin-left:5px;font-size:0}
+  .g-bar.b3{left:calc(130px + (100% - 130px)*.8);width:calc((100% - 130px)*.2 - 10px);margin-left:5px;font-size:0}
+  .g-bar.b3::after{display:none}
+}
+@media(max-width:560px){
+  .g-head>div{padding:13px 10px;font-size:8.5px}
+  .g-row{min-height:78px}
+  .g-row .g-lab{padding:14px 10px}
+  .g-row .g-lab b{font-size:16px}
+  .g-row .g-lab span{font-size:8.5px}
+  .g-head{grid-template-columns:104px repeat(5,1fr)}
+  .g-row{grid-template-columns:104px repeat(5,1fr)}
+  .g-bar{height:24px}
+  .g-bar.b1{left:calc(104px + 0%);width:calc((100% - 104px)*.2 - 8px);margin-left:4px}
+  .g-bar.b2{left:calc(104px + (100% - 104px)*.2);width:calc((100% - 104px)*.6 - 8px);margin-left:4px}
+  .g-bar.b3{left:calc(104px + (100% - 104px)*.8);width:calc((100% - 104px)*.2 - 8px);margin-left:4px}
+  .g-foot{flex-direction:column;gap:8px}
+}
+
+/* ===================== POUR QUI — LE SPECTRE ===================== */
+.spectre{margin-top:clamp(60px,8vw,90px);position:relative;padding-bottom:30px}
+.sp-axis{position:relative;height:8px;border-radius:99px;background:linear-gradient(90deg,#EAE4ED,var(--hair) 30%,var(--hair) 70%,#E4DCE8)}
+.sp-zone{
+  position:absolute;top:-5px;height:18px;border-radius:99px;left:1%;width:65%;
+  background:linear-gradient(90deg,var(--p),var(--o));
+  box-shadow:0 8px 26px rgba(245,158,81,.35);
+  transform:scaleX(0);transform-origin:left;transition:transform 1.1s var(--ease) .4s;
+}
+.spectre.on .sp-zone{transform:scaleX(1)}
+.sp-bracket{
+  position:absolute;left:1%;width:65%;top:-58px;height:34px;
+  border:1.5px solid var(--od);border-bottom:none;border-radius:14px 14px 0 0;
+  opacity:0;transition:opacity .7s var(--ease) 1.1s;
+}
+.spectre.on .sp-bracket{opacity:1}
+.sp-bracket span{
+  position:absolute;left:50%;top:-14px;transform:translate(-50%,-100%);white-space:nowrap;
+  font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--od);
+  background:var(--paper);padding:0 12px;
+}
+.sp-marks{display:grid;grid-template-columns:repeat(3,1fr);margin-top:34px}
+.sp-mark{position:relative;padding-top:10px}
+.sp-mark::before{content:'';position:absolute;top:-26px;width:1.5px;height:22px;background:var(--hair)}
+.sp-mark.m1{text-align:left}.sp-mark.m1::before{left:2px}
+.sp-mark.m2{text-align:center}.sp-mark.m2::before{left:50%}
+.sp-mark.m3{text-align:right}.sp-mark.m3::before{right:2px}
+.sp-mark .ico{display:inline-flex;gap:4px;align-items:flex-end;margin-bottom:12px}
+.sp-mark .ico i{display:block;background:var(--vl);opacity:.4;border-radius:2px 2px 0 0;font-style:normal}
+.sp-mark.m1 .ico i,.sp-mark.m2 .ico i{background:var(--od);opacity:1}
+.sp-mark h3{font-family:'Bebas Neue',sans-serif;font-size:clamp(19px,2.1vw,26px);font-weight:400;line-height:1.05}
+.sp-mark.m3 h3{opacity:.45}
+.sp-mark p{font-weight:300;font-size:.84rem;color:var(--ink-soft);max-width:30ch;margin-top:8px}
+.sp-mark.m2 p{margin-left:auto;margin-right:auto}
+.sp-mark.m3 p{margin-left:auto}
+.sp-why{
+  display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px);
+  margin-top:clamp(44px,6vw,66px);border-top:1px solid var(--hair);padding-top:clamp(30px,4vw,44px);
+}
+@media(max-width:760px){.sp-why{grid-template-columns:1fr}}
+.sp-why .wk{font-family:'Roboto Mono',monospace;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--od);display:block;margin-bottom:12px}
+.sp-why p{font-weight:300;color:var(--ink-soft);font-size:.94rem}
+.sp-why p b{color:var(--ink);font-weight:500}
+@media(max-width:640px){
+  .sp-mark p{display:none}
+  .sp-bracket{top:-66px;height:42px}
+  .sp-bracket span{font-size:8px;white-space:normal;text-align:center;max-width:200px;line-height:1.6}
+  .sp-mark h3{font-size:15px}
+  .sp-mark .ico i{transform:scale(.8);transform-origin:bottom}
+  .spectre{margin-top:100px}
+}
+
+/* ===================== À PROPOS ===================== */
+.apropos{background:linear-gradient(180deg,#F6F1F8 -60%,var(--paper) 40%)}
+.apropos .grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(40px,6vw,90px);align-items:start}
+@media(max-width:880px){.apropos .grid{grid-template-columns:1fr}}
+.apropos .prose p{font-weight:300;color:var(--ink-soft);margin-bottom:20px;max-width:58ch}
+.apropos .prose p b{color:var(--ink);font-weight:500}
+.apropos .prose .mk{background:linear-gradient(180deg,transparent 62%,var(--p) 62%);color:var(--ink);font-weight:500}
+.pull{
+  border-left:1.5px solid var(--od);padding:6px 0 6px 28px;position:sticky;top:120px;
+}
+@media(max-width:880px){.pull{position:static}}
+.pull .q{font-family:'Bebas Neue',sans-serif;font-size:clamp(26px,3vw,38px);line-height:1.08;letter-spacing:.01em}
+.pull .q em{font-style:normal;background:var(--conic);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.pull .who{font-family:'Roboto Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);margin-top:18px}
+
+/* ===================== CONTACT (sombre, soie inversée) ===================== */
+.contact{background:linear-gradient(180deg,var(--vn),#1E012C);color:#fff;overflow:hidden}
+.contact canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.85;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0%,black 18%,black 82%,transparent 100%);
+  mask-image:linear-gradient(to bottom,transparent 0%,black 18%,black 82%,transparent 100%)}
+.contact .shead{border-color:rgba(248,210,153,.18)}
+.contact .shead .tag{color:rgba(255,255,255,.5)}
+.contact .shead .tag b{color:var(--p)}
+.contact .big{font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,7vw,96px);line-height:.95;max-width:14ch}
+.contact .lead{color:rgba(255,255,255,.65)}
+.contact .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(44px,7vw,100px);align-items:start;margin-top:clamp(40px,5vw,60px)}
+@media(max-width:880px){.contact .grid{grid-template-columns:1fr}}
+.contact .go .o{background:var(--conic)}
+.contact .promesses{margin-top:44px;display:grid;gap:0}
+.contact .promesses li{
+  list-style:none;display:flex;gap:14px;align-items:baseline;padding:15px 0;
+  border-bottom:1px solid rgba(248,210,153,.14);
+  font-weight:300;color:rgba(255,255,255,.7);font-size:.95rem;
+}
+.contact .promesses li::before{content:"—";color:var(--o);font-family:'Roboto Mono',monospace;font-size:11px}
+.f-field{position:relative;margin-bottom:34px}
+.f-field input,.f-field textarea{
+  width:100%;background:transparent;border:none;border-bottom:1px solid rgba(248,210,153,.25);
+  padding:12px 2px;color:#fff;font-family:'Roboto',sans-serif;font-size:1rem;font-weight:300;
+  outline:none;transition:border-color .35s;resize:vertical;
+}
+.f-field input:focus,.f-field textarea:focus{border-color:var(--o)}
+.f-field label{
+  position:absolute;left:2px;top:12px;font-size:.95rem;font-weight:300;color:rgba(255,255,255,.45);
+  pointer-events:none;transition:all .3s var(--ease);
+}
+.f-field input:focus+label,.f-field input:not(:placeholder-shown)+label,
+.f-field textarea:focus+label,.f-field textarea:not(:placeholder-shown)+label{
+  top:-12px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--o);
+}
+.f-send{
+  background:none;border:none;color:#fff;font-family:'Roboto',sans-serif;margin-top:6px;
+}
+.rgpd{font-size:11px;font-weight:300;color:rgba(255,255,255,.4);margin-top:26px;line-height:1.8;max-width:46ch}
+.rgpd a{color:var(--p)}
+.merci{font-family:'Bebas Neue',sans-serif;font-size:30px;color:var(--p);letter-spacing:.02em}
+
+/* ===================== FOOTER ===================== */
+footer{
+  background:#1E012C;color:rgba(255,255,255,.45);padding:40px 44px;
+  display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:center;
+  font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;line-height:2.1;
+  border-top:1px solid rgba(248,210,153,.12);
+}
+footer .flogo{font-family:'Bebas Neue',sans-serif;font-size:19px;letter-spacing:.05em;color:#fff;text-transform:none}
+footer .flogo i{font-style:normal;background:var(--conic);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+footer a{color:var(--p);text-decoration:none}
+footer a:hover{text-decoration:underline}
+footer .mid{text-align:center}
+footer .right{text-align:right}
+@media(max-width:880px){footer{flex-direction:column;text-align:center}footer .right{text-align:center}}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important;transition-duration:.01ms!important}
+  .rv{opacity:1;transform:none}
+  .phrase .ln>span{transform:none}
+  .actions,.corner{opacity:1}
+  .rule{width:min(220px,18vw)}
+}
+</style>
+</head>
+<body>
+
+
+<nav class="nav">
+  <a class="logo" href="#">VOTRE<i>·AGENCE</i></a>
+  <div class="links">
+    <a class="lk" href="#leviers">Leviers</a>
+    <a class="lk" href="#methode">Méthode</a>
+    <a class="lk" href="#cible">Pour qui</a>
+    <a class="lk" href="#apropos">À propos</a>
+    <a class="lk cta" href="https://calendly.com/rida-elghalb-pro" target="_blank" rel="noopener">Réserver mon audit gratuitement</a>
+  </div>
+  <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mnav" id="mnav">
+  <a href="#leviers"><i>01</i>Ce que j'apporte</a>
+  <a href="#methode"><i>02</i>La méthode</a>
+  <a href="#cible"><i>03</i>Pour qui</a>
+  <a href="#apropos"><i>04</i>À propos</a>
+  <a href="https://calendly.com/rida-elghalb-pro" target="_blank" rel="noopener" class="mcta"><i>05</i>Diagnostic gratuit</a>
+  <div class="mfoot">Votre·Agence, administration de biens<br>Gestion locative & syndic · France</div>
+</div>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero" id="heroEl">
+  <canvas id="silk1" aria-hidden="true"></canvas>
+  <span class="rule"></span>
+  <h1 class="phrase">
+    <span class="ln"><span class="light">Des processus qui coulent</span></span>
+    <span class="ln"><span>de <span class="hl-v">source</span><span class="hl-o">.</span></span></span>
+    <span class="ln"><span class="light">Sans friction. Sans oubli.</span></span>
+  </h1>
+  <div class="actions">
+    <a href="https://calendly.com/rida-elghalb-pro" target="_blank" rel="noopener" class="go">Réserver un diagnostic gratuit <span class="o">→</span></a>
+    <a href="#leviers" class="alt">Les quatre leviers</a>
+  </div>
+  <div class="corner tr">
+    <span class="zero">6–10 h</span>
+    libérées par gestionnaire<br>chaque semaine
+  </div>
+  <div class="corner bl"><b>Votre·Agence</b>, administration de biens<br>Gestion locative & syndic · France</div>
+  <div class="corner br">Compatible ICS · Septeo · Even · LSC<br>À côté de vos logiciels, jamais à leur place</div>
+</header>
+
+<!-- ===================== BANDE ===================== -->
+<div class="tape" aria-hidden="true"><div class="track">
+  <span>Relances d'impayés dès J+3</span><span>Quittancement</span><span>Reporting propriétaires</span><span>Préparation d'AG</span><span>Échéances ALUR sous alerte</span><span>Croissance sans embauche</span>
+  <span>Relances d'impayés dès J+3</span><span>Quittancement</span><span>Reporting propriétaires</span><span>Préparation d'AG</span><span>Échéances ALUR sous alerte</span><span>Croissance sans embauche</span>
+</div></div>
+
+<!-- ===================== LEVIERS ===================== -->
+<section id="leviers">
+  <div class="wrap">
+    <div class="shead rv">
+      <span class="tag"><b>01</b> : Ce que j'apporte</span>
+      <span class="tag">L'automatisation est le moyen. La croissance est le sujet.</span>
+    </div>
+    <h2 class="stitle rv">Quatre leviers.<br><span class="dim">Un cabinet qui respire.</span></h2>
+    <p class="lead rv dl1" style="margin-top:24px">Je n'installe pas « de l'intelligence artificielle ». Je libère du temps de gestionnaire, j'accélère vos encaissements, je retiens vos propriétaires et je verrouille vos échéances, avec des processus sur mesure qui travaillent à côté de votre logiciel métier.</p>
+
+    <div class="scrolly">
+      <div class="sticky-side">
+        <span class="sk" id="stickyK">Levier 01 · Croissance</span>
+        <div class="bignum-stack">
+          <div class="bignum act">6–10h</div>
+          <div class="bignum">J+3</div>
+          <div class="bignum">5–15k€</div>
+          <div class="bignum">0</div>
+        </div>
+        <div class="slab" id="stickyL">libérées par gestionnaire<br>chaque semaine · ≈ 1 poste évité</div>
+      </div>
+      <div class="story-side" id="story">
+        <div class="sblock" data-k="Levier 01 · Croissance" data-l="libérées par gestionnaire&lt;br&gt;chaque semaine · ≈ 1 poste évité">
+          <div class="mnum">6–10 h</div>
+          <div class="meta">Levier 01 · Croissance</div>
+          <h3>Absorber plus de mandats sans recruter</h3>
+          <p>Un gestionnaire libéré de 6 à 10 heures par semaine suit davantage de lots, mieux. À l'échelle du cabinet, c'est un recrutement évité ou retardé : 45 à 55 k€ par an.</p>
+          <div class="exm"><b>Exemple :</b> comptes-rendus de gestion générés automatiquement chaque mois, prêts à relire et envoyer.</div>
+        </div>
+        <div class="sblock" data-k="Levier 02 · Recouvrement" data-l="première relance d'impayé&lt;br&gt;au lieu de J+30">
+          <div class="mnum">J+3</div>
+          <div class="meta">Levier 02 · Recouvrement</div>
+          <h3>Encaisser les impayés plus vite</h3>
+          <p>Une relance qui part à J+3 plutôt qu'à J+30 change radicalement le taux de recouvrement amiable, sans mobiliser une seule heure de vos équipes.</p>
+          <div class="exm"><b>Exemple :</b> séquence graduée courriel → SMS → courrier, déclenchée et suivie automatiquement.</div>
+        </div>
+        <div class="sblock" data-k="Levier 03 · Fidélisation" data-l="de revenus futurs préservés&lt;br&gt;par mandat fidélisé">
+          <div class="mnum">5–15 k€</div>
+          <div class="meta">Levier 03 · Fidélisation</div>
+          <h3>Retenir vos propriétaires-bailleurs</h3>
+          <p>Un reporting régulier et impeccable est la première raison de rester. Un mandat perdu, c'est 5 à 15 k€ de revenus futurs envolés.</p>
+          <div class="exm"><b>Exemple :</b> point mensuel automatisé par propriétaire : loyers encaissés, travaux, échéances à venir.</div>
+        </div>
+        <div class="sblock" data-k="Levier 04 · Conformité" data-l="oubli d'échéance&lt;br&gt;mandats · diagnostics · ALUR">
+          <div class="mnum">0</div>
+          <div class="meta">Levier 04 · Conformité</div>
+          <h3>Ne plus jamais rater une échéance</h3>
+          <p>Fins de mandats, diagnostics, obligations ALUR : tout est surveillé en continu, rien ne repose sur la mémoire d'un collaborateur débordé.</p>
+          <div class="exm"><b>Exemple :</b> tableau des échéances avec alertes automatiques à J−60, J−30 et J−7.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== MÉTHODE ===================== -->
+<section class="methode" id="methode">
+  <div class="wrap">
+    <div class="shead rv">
+      <span class="tag"><b>02</b> : La méthode</span>
+      <span class="tag">Sans migration · sans rupture · sans formation lourde</span>
+    </div>
+    <h2 class="stitle rv">Un mois,<br><span class="dim">pas un trimestre.</span></h2>
+
+    <div class="gantt rv" id="ganttPlan">
+      <div class="g-head">
+        <div>Étape</div><div>Sem. 1</div><div>Sem. 2</div><div>Sem. 3</div><div>Sem. 4</div><div>Ensuite</div>
+      </div>
+      <div class="g-row">
+        <div class="g-lab"><b>Diagnostic</b><span>Gratuit · rapport 72 h</span></div>
+        <div class="g-cell"></div><div class="g-cell"></div><div class="g-cell"></div><div class="g-cell"></div><div class="g-cell"></div>
+        <div class="g-bar b1">45 min + rapport</div>
+      </div>
+      <div class="g-row">
+        <div class="g-lab"><b>Mise en place</b><span>1 500 – 3 500 €</span></div>
+        <div class="g-cell"></div><div class="g-cell"></div><div class="g-cell"></div><div class="g-cell"></div><div class="g-cell"></div>
+        <div class="g-bar b2">2 à 6 processus déployés</div>
+      </div>
+      <div class="g-row">
+        <div class="g-lab"><b>Suivi</b><span>350 – 900 € / mois</span></div>
+        <div class="g-cell"></div><div class="g-cell"></div><div class="g-cell"></div><div class="g-cell"></div><div class="g-cell"></div>
+        <div class="g-bar b3">Évolutions</div>
+      </div>
+      <div class="g-foot">
+        <span class="price">Compatible <b>ICS · Septeo · Even · LSC</b>, à côté de vos logiciels, jamais à leur place</span>
+        <span class="price">Premiers résultats <b>dès la semaine 3</b></span>
+      </div>
+    </div>
+
+    <div class="g-detail rv">
+      <p><span class="dk">01 · Diagnostic</span>45 minutes en visio pour cartographier vos processus chronophages : relances, quittancement, reporting, AG, échéances. Le rapport écrit vous appartient, que nous travaillions ensemble ensuite ou non.</p>
+      <p><span class="dk">02 · Mise en place</span>Conception et déploiement sur mesure des automatisations prioritaires, de 2 à 6 processus selon l'engagement. Vos équipes gardent leurs outils et leurs habitudes.</p>
+      <p><span class="dk">03 · Suivi</span>Maintenance, surveillance et améliorations continues : vos processus évoluent avec votre portefeuille, avec un interlocuteur unique qui connaît votre cabinet par cœur.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== POUR QUI ===================== -->
+<section class="cible" id="cible">
+  <div class="wrap">
+    <div class="shead rv">
+      <span class="tag"><b>03</b> : Pour qui</span>
+      <span class="tag">Du gérant solo au cabinet indépendant</span>
+    </div>
+    <h2 class="stitle rv">Toute la profession.<br><span class="dim">Une seule zone m'intéresse.</span></h2>
+
+    <div class="spectre rv">
+      <div class="sp-bracket"><span>Ma zone · du gérant solo au cabinet indépendant</span></div>
+      <div class="sp-axis"><div class="sp-zone"></div></div>
+      <div class="sp-marks">
+        <div class="sp-mark m1">
+          <div class="ico"><i style="width:8px;height:16px"></i></div>
+          <h3>Gérant solo<br>&lt; 500 lots</h3>
+          <p>Des automatisations ciblées (relances d'impayés et quittancement en priorité) pour grandir sans s'épuiser.</p>
+        </div>
+        <div class="sp-mark m2">
+          <div class="ico"><i style="width:9px;height:18px"></i><i style="width:11px;height:26px"></i><i style="width:9px;height:21px"></i></div>
+          <h3>Indépendants · 5–15 collab. · 500–2 000 lots</h3>
+          <p>Gestion locative, syndic ou mixte, là où chaque heure de gestionnaire compte et où l'automatisation change la donne.</p>
+        </div>
+        <div class="sp-mark m3">
+          <div class="ico"><i style="width:10px;height:18px"></i><i style="width:12px;height:28px"></i><i style="width:13px;height:36px"></i><i style="width:11px;height:24px"></i></div>
+          <h3>Grands groupes<br>Foncia · Citya · Nexity</h3>
+          <p>Équipes informatiques internes : vous avez déjà ces ressources.</p>
+        </div>
+      </div>
+      <div class="sp-why">
+        <div>
+          <span class="wk">Pourquoi cette zone</span>
+          <p>Du gérant solo au cabinet de 15 collaborateurs, les tâches répétitives coûtent cher (jusqu'à <b>6 à 10 h par gestionnaire et par semaine</b>) et la structure reste assez agile pour déployer des automatisations en un mois, sans comité ni appel d'offres. Hors de cette zone : remplacement de logiciel métier et solutions miracles sans implication ne sont pas mon terrain, je préfère le dire avant qu'après.</p>
+        </div>
+        <div>
+          <span class="wk">Et si vous êtes en bordure</span>
+          <p>Au-delà de 2 000 lots, vous avez souvent déjà des équipes dédiées, mais les frontières ont des exceptions. <b>Le diagnostic gratuit de 45 minutes</b> est justement fait pour trancher votre cas, rapport écrit à l'appui.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== À PROPOS ===================== -->
+<section class="apropos" id="apropos">
+  <div class="wrap">
+    <div class="shead rv">
+      <span class="tag"><b>04</b> : À propos</span>
+      <span class="tag">Un spécialiste de votre métier, pas une agence « IA » de plus</span>
+    </div>
+    <div class="grid" style="margin-top:clamp(20px,3vw,30px)">
+      <div class="prose">
+        <h2 class="stitle rv" style="margin-bottom:34px">Une niche.<br><span class="dim">Une obsession.</span></h2>
+        <p class="rv">Je suis entrepreneur et étudiant en réseaux et télécommunications (Sorbonne Paris Nord). J'ai déjà construit et fait tourner une première activité en ligne. Cette agence est mon deuxième projet, et il est entièrement consacré à <span class="mk">un seul secteur : l'administration de biens</span>.</p>
+        <p class="rv dl1">Pourquoi cette niche ? Parce que c'est un métier exigeant, réglementé, où chaque heure de gestionnaire compte, et où les outils génériques échouent, faute de comprendre les réalités du terrain : mandats, AG, quittancement, ALUR.</p>
+        <p class="rv dl2"><b>Je joue la transparence :</b> l'agence est jeune, et vous ne trouverez ici ni faux témoignages ni chiffres gonflés. En contrepartie, vous bénéficiez d'un diagnostic gratuit sérieux, d'un engagement total sur vos premiers résultats, et d'un interlocuteur unique qui connaît votre dossier par cœur.</p>
+        <div class="rv dl3" style="margin-top:34px">
+          <a href="https://calendly.com/rida-elghalb-pro" target="_blank" rel="noopener" class="go">Discutons de votre cabinet <span class="o">→</span></a>
+        </div>
+      </div>
+      <div class="pull rv dl1">
+        <p class="q">« Mon travail commence là où le temps de vos gestionnaires <em>se perd</em>, et s'arrête là où votre logiciel métier fait déjà bien le sien. »</p>
+        <p class="who">Le fondateur, Votre·Agence</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTACT ===================== -->
+<section class="contact" id="contact">
+  <canvas id="silk2" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="shead rv">
+      <span class="tag"><b>05</b> : Diagnostic</span>
+      <span class="tag">45 min en visio · rapport écrit sous 72 h · sans engagement</span>
+    </div>
+    <h2 class="big rv">Et si on regardait où votre cabinet <span class="hl-p">perd du temps ?</span></h2>
+
+    <div class="grid">
+      <div>
+        <p class="lead rv dl1">Réservez directement un créneau, ou laissez-moi un message : je reviens vers vous sous 24 h ouvrées avec une proposition de date.</p>
+        <div class="rv dl2" style="margin-top:38px">
+          <!-- Remplacer par votre lien Calendly -->
+          <a href="https://calendly.com/rida-elghalb-pro" target="_blank" rel="noopener" class="go">Choisir un créneau de 30 min <span class="o">→</span></a>
+        </div>
+        <ul class="promesses rv dl3">
+          <li>Le rapport vous appartient, quoi qu'il arrive ensuite</li>
+          <li>Aucune migration de logiciel, aucune rupture pour vos équipes</li>
+          <li>Aucun engagement, aucune relance commerciale insistante</li>
+        </ul>
+      </div>
+      <form id="cform" class="rv dl2" novalidate>
+        <div class="f-field"><input type="text" id="fn" placeholder=" " required><label for="fn">Votre nom</label></div>
+        <div class="f-field"><input type="text" id="fc" placeholder=" "><label for="fc">Nom du cabinet</label></div>
+        <div class="f-field"><input type="email" id="fe" placeholder=" " required><label for="fe">Adresse e-mail</label></div>
+        <div class="f-field"><textarea id="fm" rows="3" placeholder=" "></textarea><label for="fm">Votre situation : lots gérés, tâches qui pèsent…</label></div>
+        <button type="submit" class="go f-send">Envoyer le message <span class="o">→</span></button>
+        <p class="rgpd">Vos données servent uniquement à vous recontacter. Elles ne sont ni partagées ni utilisées à d'autres fins. <a href="confidentialite.html">Politique de confidentialité</a>.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div><span class="flogo">VOTRE<i>·AGENCE</i></span><br>Administration de biens · France</div>
+  <div class="mid">© 2026, Croissance des cabinets,<br>par l'automatisation des processus</div>
+  <div class="right"><a href="mention-legales.html">Mentions légales</a> · <a href="confidentialite.html">Confidentialité</a><br><a href="mailto:contact@votre-domaine.fr">contact@votre-domaine.fr</a></div>
+</footer>
+
+<!-- EmailJS : SDK officiel (envoi d'e-mail côté navigateur, sans backend) -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+/* ===================== config EmailJS ===================== */
+/* 1. Crée un compte sur https://www.emailjs.com (gratuit)
+   2. Ajoute un service e-mail (Gmail, Outlook, SMTP…) → SERVICE_ID
+   3. Crée un template avec les variables {{from_name}}, {{cabinet}}, {{reply_to}}, {{message}} → TEMPLATE_ID
+   4. Récupère ta clé publique dans Account → API Keys → PUBLIC_KEY
+   5. Remplace les trois valeurs ci-dessous. */
+var EMAILJS = {
+  PUBLIC_KEY:  'RIXWpDljGUTSHOEeD',
+  SERVICE_ID:  'service_qqlf79h',
+  TEMPLATE_ID: 'template_7hn2igm'
+};
+if(window.emailjs){emailjs.init({publicKey:EMAILJS.PUBLIC_KEY});}
+
+var REDUCED=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ===================== menu mobile ===================== */
+(function(){
+  var burger=document.getElementById('burger'),mnav=document.getElementById('mnav');
+  if(!burger)return;
+  burger.addEventListener('click',function(){document.body.classList.toggle('menu-open')});
+  mnav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){document.body.classList.remove('menu-open')});
+  });
+})();
+
+/* ===================== reveals au scroll ===================== */
+var io=new IntersectionObserver(function(es){
+  es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}});
+},{threshold:.15,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+
+/* ===================== LA SOIE — moteur partagé ===================== */
+function silk(hostId,canvasId,opts){
+  var hero=document.getElementById(hostId);
+  var cv=document.getElementById(canvasId),ctx=cv.getContext('2d');
+  var W,H,dpr,visible=true;
+  function size(){
+    dpr=Math.min(devicePixelRatio||1,2);
+    W=hero.clientWidth;H=hero.clientHeight;
+    cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+  }
+  size();addEventListener('resize',size);
+  var m={px:-9999,py:-9999};
+  hero.addEventListener('pointermove',function(e){
+    var r=hero.getBoundingClientRect();
+    m.px=e.clientX-r.left;m.py=e.clientY-r.top;
+  });
+  hero.addEventListener('pointerleave',function(){m.px=-9999;m.py=-9999});
+  new IntersectionObserver(function(es){visible=es[0].isIntersecting},{threshold:.05}).observe(hero);
+
+  var smx=-9999,smy=-9999;
+  function draw(t){
+    ctx.clearRect(0,0,W,H);
+    if(m.px>-999){smx=smx<-999?m.px:smx+(m.px-smx)*.06;smy=smy<-999?m.py:smy+(m.py-smy)*.06}
+    var SEG=90;
+    for(var sh=0;sh<opts.sheets.length;sh++){
+      var S=opts.sheets[sh],baseY=H*S.y;
+      for(var k=0;k<S.threads;k++){
+        var off=(k-S.threads/2)*4.4;
+        var ph=k*.18;
+        var a=.04+(1-Math.abs(k-S.threads/2)/(S.threads/2))*.16;
+        ctx.strokeStyle=S.hue==='o'?opts.colO(a):opts.colV(a);
+        ctx.lineWidth=1;
+        ctx.beginPath();
+        for(var i=0;i<=SEG;i++){
+          var x=i/SEG*W;
+          var y=baseY+off
+            +Math.sin(x*.0042+t*S.sp+ph)*S.amp
+            +Math.sin(x*.0093-t*S.sp*.7+ph*1.6)*S.amp*.45
+            +Math.sin(x*.0021+t*.3)*S.amp*.6;
+          if(smx>-999){
+            var dx=x-smx,dy=(baseY+off)-smy;
+            y+=Math.exp(-(dx*dx+dy*dy)/26000)*(smy>baseY?-1:1)*-46;
+          }
+          i?ctx.lineTo(x,y):ctx.moveTo(x,y);
+        }
+        ctx.stroke();
+      }
+    }
+  }
+  if(REDUCED){draw(1.6);return}
+  var t0=performance.now();
+  (function loop(now){
+    if(visible)draw((now-t0)/1000);
+    requestAnimationFrame(loop);
+  })(t0);
+}
+
+/* hero : encres violet + orange sur papier */
+silk('heroEl','silk1',{
+  sheets:[
+    {y:.3,amp:34,threads:16,sp:.5,hue:'v'},
+    {y:.52,amp:46,threads:20,sp:.36,hue:'o'},
+    {y:.74,amp:38,threads:16,sp:.6,hue:'v'}
+  ],
+  colV:function(a){return 'rgba(160,107,171,'+(a*.8)+')'},
+  colO:function(a){return 'rgba(248,210,153,'+(a*.85)+')'}
+});
+
+/* contact : fils pêche + mauve sur nuit */
+silk('contact','silk2',{
+  sheets:[
+    {y:.26,amp:30,threads:14,sp:.42,hue:'o'},
+    {y:.6,amp:42,threads:18,sp:.32,hue:'v'},
+    {y:.86,amp:30,threads:12,sp:.55,hue:'o'}
+  ],
+  colV:function(a){return 'rgba(160,107,171,'+(a*.8)+')'},
+  colO:function(a){return 'rgba(248,210,153,'+(a*.85)+')'}
+});
+
+/* ===================== scrollytelling leviers ===================== */
+(function(){
+  var blocks=[].slice.call(document.querySelectorAll('#story .sblock'));
+  var nums=[].slice.call(document.querySelectorAll('.bignum'));
+  var k=document.getElementById('stickyK'),l=document.getElementById('stickyL');
+  if(!blocks.length)return;
+  var cur=-1,swapping=false;
+  function setActive(i){
+    if(i===cur)return;
+    cur=i;
+    nums.forEach(function(n,j){n.classList.toggle('act',j===i)});
+    if(swapping)return;
+    swapping=true;
+    k.style.opacity=0;l.style.opacity=0;
+    setTimeout(function(){
+      k.textContent=blocks[cur].dataset.k;
+      l.innerHTML=blocks[cur].dataset.l;
+      k.style.opacity=1;l.style.opacity=1;
+      swapping=false;
+    },200);
+  }
+  var ticking=false;
+  function update(){
+    ticking=false;
+    var mid=innerHeight*.5,best=0,bd=Infinity;
+    for(var i=0;i<blocks.length;i++){
+      var r=blocks[i].getBoundingClientRect();
+      var d=Math.abs(r.top+r.height/2-mid);
+      if(d<bd){bd=d;best=i}
+    }
+    setActive(best);
+  }
+  function onScroll(){
+    if(!ticking){ticking=true;requestAnimationFrame(update)}
+  }
+  addEventListener('scroll',onScroll,{passive:true});
+  addEventListener('resize',onScroll);
+  update();
+})();
+
+/* ===================== formulaire (EmailJS) ===================== */
+document.getElementById('cform').addEventListener('submit',function(e){
+  e.preventDefault();
+  var form=this;
+  var n=document.getElementById('fn'),em=document.getElementById('fe');
+  if(!n.value.trim()||!em.value.trim()||em.validity.typeMismatch){
+    [n,em].forEach(function(f){if(!f.value.trim()||f.validity.typeMismatch)f.style.borderColor='#F35F4F'});
+    return;
+  }
+  var btn=form.querySelector('.f-send');
+  var done=function(){form.innerHTML='<p class="merci">Merci, je reviens vers vous sous 24 h ouvrées.</p><p class="rgpd" style="margin-top:14px">Pensez à vérifier vos indésirables si vous n\'avez pas de réponse.</p>';};
+
+  /* Si EmailJS n'est pas (encore) configuré, on n'envoie rien et on confirme quand même. */
+  if(!window.emailjs||EMAILJS.PUBLIC_KEY==='TA_PUBLIC_KEY'){done();return;}
+
+  var prev=btn.innerHTML;
+  btn.disabled=true;btn.style.opacity='.6';btn.innerHTML='Envoi en cours…';
+  emailjs.send(EMAILJS.SERVICE_ID,EMAILJS.TEMPLATE_ID,{
+    from_name:n.value.trim(),
+    cabinet:document.getElementById('fc').value.trim(),
+    reply_to:em.value.trim(),
+    message:document.getElementById('fm').value.trim()
+  }).then(function(){
+    done();
+  },function(err){
+    btn.disabled=false;btn.style.opacity='';btn.innerHTML=prev;
+    var msg=form.querySelector('.f-error');
+    if(!msg){msg=document.createElement('p');msg.className='rgpd f-error';msg.style.color='#F35F4F';msg.style.marginTop='12px';btn.insertAdjacentElement('afterend',msg);}
+    msg.textContent='L\'envoi a échoué. Réessayez, ou écrivez-moi directement à contact@votre-domaine.fr.';
+    if(window.console)console.error('EmailJS:',err);
+  });
+});
+</script>
+</body>
+</html>
